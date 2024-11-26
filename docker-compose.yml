@@ -2,7 +2,7 @@ services:
   web:
     image: pcdiks/bmmanager:latest
     environment:
-      - DEBUG=True
+      - DEBUG=False
       - SECRET_KEY=my-very-secret-key
       - DB_NAME=/data/db.sqlite3
       - ALLOWED_HOSTS=*
