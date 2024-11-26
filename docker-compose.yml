@@ -1,6 +1,6 @@
 services:
   web:
-    image: django-nginx-app
+    image: pcdiks/bmmanager:latest
     environment:
       - DEBUG=True
       - SECRET_KEY=my-very-secret-key
