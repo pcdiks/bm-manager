@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Bookmark</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete "{{ bookmark.display_name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'bookmark_list' bookmark.category.collection.id bookmark.category.id %}">Cancel</a>
+    </form>
+</body>
+</html>

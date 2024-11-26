@@ -1,0 +1,373 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333; /* Dark gray */
+    color: white;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.navbar a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    color: #1e90ff; /* Blue hover */
+}
+
+.navbar button {
+    background: #1e90ff; /* Blue button */
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.navbar button:hover {
+    background-color: #007bff; /* Darker blue */
+}
+
+/* Content Offset for Fixed Navbar */
+.content {
+    margin-top: 70px;
+    padding: 1rem;
+}
+
+/* Tabs and Add Button Container */
+.collections-tabs-container {
+    display: flex;
+    justify-content: space-between; /* Space between tabs and the button */
+    align-items: center; /* Align button and tabs vertically */
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #444444; /* Line below tabs */
+}
+
+/* Tabs for Collections */
+.collections-tabs {
+    display: flex;
+    gap: 0.5rem; /* Space between tabs */
+}
+
+.collections-tabs .tab {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #ffffff; /* White text */
+    background-color: #333333; /* Dark gray for tabs */
+    border: 2px solid #444444; /* Slightly lighter border */
+    border-bottom: none; /* No border on the bottom for "attached" effect */
+    border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+    font-weight: bold;
+    position: relative; /* Needed for overlap effect */
+    top: 2px; /* Slight lift for 3D effect */
+    transition: background-color 0.3s, top 0.3s; /* Smooth hover animation */
+}
+
+.collections-tabs .tab:hover {
+    background-color: #555555; /* Slightly lighter gray on hover */
+    top: 0; /* Lift the tab slightly */
+}
+
+.collections-tabs .tab.active {
+    background-color: #1e90ff; /* Blue for active tab */
+    color: white;
+    border-bottom: 2px solid #000000; /* Black border to blend with the container line */
+    font-weight: bold;
+    top: 0; /* Active tab is flush with the line */
+}
+
+/* Add Button */
+.add-collection-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #1e90ff; /* Blue button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: -15px; /* Moves the button up by 5 pixels */
+    position: relative; /* Ensures the margin-top works properly */
+}
+
+.add-collection-button:hover {
+    background-color: #007bff; /* Darker blue */
+}
+
+/* Buttons */
+.add-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #1e90ff; /* Blue button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.add-button:hover {
+    background-color: #007bff; /* Darker blue */
+}
+
+/* Categories */
+/* Categories Container */
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exactly three categories per row */
+    gap: 1rem; /* Spacing between categories */
+    max-width: 100%; /* Ensure it doesn't overflow */
+}
+
+/* Individual Category Cards */
+.category {
+    background-color: #303030; /* Dark gray */
+    padding: 1rem;
+    border: 1px solid #555555; /* Slightly lighter gray */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.category h3 {
+    margin-top: 0;
+    margin-bottom: 1rem; /* Add some spacing below the heading */
+    color: #ffffff; /* White text for the category name */
+    border-bottom: 2px solid #555555; /* Line under the category name */
+    padding-bottom: 0.5rem; /* Add spacing between the text and the line */
+}
+
+.add-category {
+    margin-bottom: 20px; /* Adds 20 pixels of space below the button */
+}
+
+/* Bookmarks */
+/* Bookmarks List */
+.bookmarks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bookmark-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    /*background-color: #444444; /* Dark gray background for bookmark items */
+    line-height: 1; /* Tighten line spacing */
+    border-radius: 5px;
+    margin-bottom: 0.05rem;
+    transition: background-color 0.3s;
+}
+
+.bookmark-item:last-child {
+    margin-bottom: 15px; /* No margin after the last item */
+}
+
+.bookmark-item:hover {
+    background-color: #555555; /* Slightly lighter gray on hover */
+}
+
+/* Bookmark Content */
+.bookmark-item span {
+    flex-grow: 1; /* Ensures the text takes up remaining space */
+}
+
+/* Bookmark Actions */
+.bookmark-actions {
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s;
+}
+
+.bookmark-item:hover .bookmark-actions {
+    opacity: 1; /* Show on hover */
+}
+
+/* Action Icons */
+.action-icon {
+    display: inline-block;
+    color: #ffffff; /* White icons */
+    font-size: 1.2rem; /* Adjust size as needed */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.action-icon:hover {
+    color: #1e90ff; /* Blue on hover */
+}
+
+/* Specific Icon Styling (Optional) */
+.edit-icon:hover {
+    color: #1abc9c; /* Teal for edit */
+}
+
+.delete-icon:hover {
+    color: #e74c3c; /* Red for delete */
+}
+
+.bookmarks li {
+    list-style: none;
+}
+
+.bookmarks li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #1e90ff; /* Blue links */
+}
+
+.bookmarks li a:hover {
+    text-decoration: underline;
+    color: #007bff; /* Darker blue on hover */
+}
+
+/* Modal (For Adding Items) */
+.modal-content {
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #333333; /* Dark gray background */
+    color: #ffffff; /* White text */
+}
+
+.modal-header {
+    background-color: #1e90ff; /* Blue header */
+    color: white;
+    border-bottom: 2px solid #007bff;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+/* Form Inputs */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto; /* Center the form vertically and horizontally */
+    text-align: center;
+    background: black;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.logo img {
+    height: 200px;
+    margin-bottom: 1rem;
+}
+.login-form {
+    margin-top: 1rem;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 90%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.login-form button {
+    width: 95%;
+    padding: 0.5rem;
+    background-color: #0621f0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login-form button:hover {
+    background-color: #555;
+}
+
+/* Account Page */
+.account-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.account-actions .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-secondary {
+    background-color: #555555;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #333333;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-align: center;
+}
+
+.alert {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

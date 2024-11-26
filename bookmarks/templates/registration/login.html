@@ -1,0 +1,18 @@
+{% extends 'minimal_base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </div>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <br><p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+</div>
+{% endblock %}

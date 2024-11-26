@@ -1,0 +1,16 @@
+<div class="mb-3">
+    <label for="url" class="form-label">URL</label>
+    <input type="url" class="form-control" id="url" name="url" value="{{ bookmark.url }}" required>
+</div>
+<div class="mb-3">
+    <label for="display_name" class="form-label">Display Name</label>
+    <input type="text" class="form-control" id="display_name" name="display_name" value="{{ bookmark.display_name }}" required>
+</div>
+<div class="mb-3">
+    <label for="notes" class="form-label">Notes</label>
+    <textarea class="form-control" id="notes" name="notes">{{ bookmark.notes }}</textarea>
+</div>
+<div class="mb-3">
+    <label for="tags" class="form-label">Tags</label>
+    <input type="text" class="form-control" id="tags" name="tags" value="{{ bookmark.tags }}">
+</div>

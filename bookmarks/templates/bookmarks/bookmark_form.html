@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookmark Form</title>
+</head>
+<body>
+    <h1>{% if bookmark %}Edit Bookmark{% else %}Add Bookmark{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" value="{{ bookmark.url|default:'' }}" required>
+        <br>
+        <label for="display_name">Display Name:</label>
+        <input type="text" id="display_name" name="display_name" value="{{ bookmark.display_name|default:'' }}" required>
+        <br>
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes">{{ bookmark.notes|default:'' }}</textarea>
+        <br>
+        <label for="tags">Tags (comma-separated):</label>
+        <input type="text" id="tags" name="tags" value="{{ bookmark.tags|default:'' }}">
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

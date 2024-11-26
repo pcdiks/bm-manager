@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Collections</title>
+</head>
+<body>
+    <h1>Your Collections</h1>
+    <a href="{% url 'collection_create' %}">Create New Collection</a>
+    <ul>
+        {% for collection in collections %}
+            <li>
+                <a href="#">{{ collection.name }}</a> - {{ collection.description }}
+                <a href="{% url 'collection_update' collection.pk %}">Edit</a>
+                <a href="{% url 'collection_delete' collection.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

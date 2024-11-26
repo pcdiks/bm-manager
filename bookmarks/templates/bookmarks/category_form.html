@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Form</title>
+</head>
+<body>
+    <h1>{% if category %}Edit Category{% else %}Add Category{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ category.name|default:'' }}" required>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

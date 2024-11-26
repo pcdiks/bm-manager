@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Collection Form</title>
+</head>
+<body>
+    <h1>{% if collection %}Edit Collection{% else %}Create Collection{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ collection.name|default:'' }}" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description">{{ collection.description|default:'' }}</textarea>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

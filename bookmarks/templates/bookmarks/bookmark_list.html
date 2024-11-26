@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookmarks in {{ category.name }}</title>
+</head>
+<body>
+    <h1>Bookmarks in "{{ category.name }}"</h1>
+    <a href="{% url 'bookmark_create' category.collection.id category.id %}">Add Bookmark</a>
+    <ul>
+        {% for bookmark in bookmarks %}
+            <li>
+                <a href="{{ bookmark.url }}" target="_blank">{{ bookmark.display_name }}</a>
+                <br>Notes: {{ bookmark.notes }}
+                <br>Tags: {{ bookmark.tags }}
+                <a href="{% url 'bookmark_update' category.collection.id category.id bookmark.id %}">Edit</a>
+                <a href="{% url 'bookmark_delete' category.collection.id category.id bookmark.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

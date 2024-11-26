@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories in {{ collection.name }}</title>
+</head>
+<body>
+    <h1>Categories in "{{ collection.name }}"</h1>
+    <a href="{% url 'category_create' collection.id %}">Add Category</a>
+    <ul>
+        {% for category in categories %}
+            <li>
+                {{ category.name }}
+                <a href="{% url 'category_update' collection.id category.id %}">Edit</a>
+                <a href="{% url 'category_delete' collection.id category.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

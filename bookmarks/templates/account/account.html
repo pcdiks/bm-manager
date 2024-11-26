@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Account{% endblock %}
+{% block content %}
+<h1>Account</h1>
+<ul>
+    <li><strong>Username:</strong> {{ user.username }}</li>
+    <li><strong>Email:</strong> {{ user.email }}</li>
+</ul>
+
+<div class="account-actions">
+    <a href="{% url 'change_password' %}" class="btn btn-primary">Change Password</a>
+    <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
+</div>
+
+<hr>
+
+<h2>Import Bookmarks</h2>
+<form method="post" action="{% url 'import_bookmarks' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="bookmark_file" accept=".html" required>
+    <button type="submit" class="btn btn-primary">Import</button>
+</form>
+
+<br>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

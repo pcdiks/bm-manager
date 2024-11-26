@@ -1,0 +1,19 @@
+{% extends 'minimal_base.html' %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </div>
+    <h1>Create an Account</h1>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <br><p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+</div>
+{% endblock %}

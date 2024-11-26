@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Collection</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete "{{ collection.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'collection_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
