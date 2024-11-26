@@ -21,7 +21,7 @@ COPY . /app
 RUN python manage.py collectstatic --noinput
 
 # Copy the Nginx configuration
-COPY nginx/default.conf /etc/nginx/conf.d/
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Expose the port for Nginx
 EXPOSE 80
