@@ -1,0 +1,17 @@
+services:
+  web:
+    image: django-nginx-app
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=my-very-secret-key
+      - DB_NAME=/data/db.sqlite3
+      - ALLOWED_HOSTS=*
+      - EMAIL_HOST=smtp.domain.com
+      - EMAIL_PORT=25
+      - EMAIL_USE_TLS=False
+      - EMAIL_USE_SSL=False
+      - DEFAULT_FROM_EMAIL=bmmanager@domain.com
+    volumes:
+      - ./data:/data
+    ports:
+      - "80:80"
