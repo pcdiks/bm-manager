@@ -18,8 +18,9 @@ Bookmark Manager is a multi-user web application for managing bookmarks. It allo
 
 ## Screenshots
 
-(images/SCR-20241128-ocrv.png)
-(images/SCR-20241128-odnf.png)
+(./images/SCR-20241128-ocrv.png)
+
+(./images/SCR-20241128-odnf.png)
 
 ## Prerequisites
 
