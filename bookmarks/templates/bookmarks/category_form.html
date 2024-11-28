@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Category Form</title>
-</head>
-<body>
-    <h1>{% if category %}Edit Category{% else %}Add Category{% endif %}</h1>
+% extends "base.html" %}
+
+{% block title %}Rename Category{% endblock %}
+
+{% block content %}
+<div class="modal">
+    <h2>Rename Category</h2>
     <form method="post">
         {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ category.name|default:'' }}" required>
-        <br>
+        <div>
+            <label for="name">Category Name</label>
+            <input type="text" id="name" name="name" value="{{ category.name }}" required>
+        </div>
         <button type="submit">Save</button>
+        <a href="/" class="cancel-button">Cancel</a>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

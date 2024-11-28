@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Category</title>
-</head>
-<body>
-    <h1>Are you sure you want to delete "{{ category.name }}"?</h1>
+{% extends "base.html" %}
+
+{% block title %}Delete Category{% endblock %}
+
+{% block content %}
+<div class="modal">
+    <h2>Are you sure you want to delete the category "{{ category.name }}"?</h2>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Yes, Delete</button>
-        <a href="{% url 'category_list' category.collection.id %}">Cancel</a>
+        <button type="submit" class="btn-danger">Delete</button>
+        <a href="/" class="cancel-button">Cancel</a>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

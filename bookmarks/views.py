@@ -204,21 +204,27 @@ def category_create(request, collection_id):
     return JsonResponse({'error': 'Invalid request method'}, status=405)
 
 @login_required
-def category_update(request, collection_id, pk):
-    category = get_object_or_404(Category, id=pk, collection__id=collection_id, collection__owner=request.user)
+def category_update(request, collection_id, category_id):
+    category = get_object_or_404(Category, id=category_id, collection__id=collection_id, collection__owner=request.user)
+
     if request.method == 'POST':
-        category.name = request.POST.get('name')
-        category.save()
-        return redirect('category_list', collection_id=collection_id)
-    return render(request, 'bookmarks/category_form.html', {'category': category})
+        category.name = request.POST.get('name', '').strip()
+        if category.name:
+            category.save()
+            return JsonResponse({'success': True})  # Respond for AJAX requests
+        return JsonResponse({'success': False, 'error': 'Category name cannot be empty.'}, status=400)
+
+    return JsonResponse({'name': category.name})
 
 @login_required
-def category_delete(request, collection_id, pk):
-    category = get_object_or_404(Category, id=pk, collection__id=collection_id, collection__owner=request.user)
+def category_delete(request, collection_id, category_id):
+    category = get_object_or_404(Category, id=category_id, collection__id=collection_id, collection__owner=request.user)
+
     if request.method == 'POST':
         category.delete()
-        return redirect('category_list', collection_id=collection_id)
-    return render(request, 'bookmarks/category_confirm_delete.html', {'category': category})
+        return JsonResponse({'success': True})  # Respond for AJAX requests
+
+    return JsonResponse({'success': False, 'error': 'Invalid request.'}, status=400)
 
 @login_required
 def bookmark_list(request, collection_id, category_id):

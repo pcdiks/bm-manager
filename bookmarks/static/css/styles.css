@@ -7,19 +7,20 @@ body {
     padding: 0;
 }
 
-/* Navigation Bar */
+/* Navbar adjustments */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #333333; /* Dark gray */
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 10px 20px; /* Adjust padding for the new logo height */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    height: 100px; /* Match the logo height */
 }
 
 .navbar a {
@@ -48,10 +49,14 @@ body {
     background-color: #007bff; /* Darker blue */
 }
 
-/* Content Offset for Fixed Navbar */
+/* Ensure the content starts below the navbar */
 .content {
-    margin-top: 70px;
-    padding: 1rem;
+    margin-top: 100px; /* Same height as the navbar */
+    padding: 1rem; /* Add some padding for visual comfort */
+}
+
+.content a {
+    font-weight: normal !important;
 }
 
 /* Tabs and Add Button Container */

@@ -49,3 +49,9 @@ urlpatterns += [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset_done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 ]
+
+urlpatterns += [
+    # Rename or delete a collection paths...
+    path('collections/<int:collection_id>/categories/<int:category_id>/update/', views.category_update, name='category_update'),
+    path('collections/<int:collection_id>/categories/<int:category_id>/delete/', views.category_delete, name='category_delete'),
+]
