@@ -11,10 +11,7 @@ APP_HOST = config("APP_HOST", default="localhost")
 # General settings
 SECRET_KEY = config('SECRET_KEY', default='dummy-secret-key-for-build')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ["{APP_HOST}","localhost"]
-
-# Dynamically construct the CSRF_TRUSTED_ORIGINS list
-CSRF_TRUSTED_ORIGINS = [f"http://localhost:8001",f"https://{APP_HOST}"]
+ALLOWED_HOSTS = [f"{APP_HOST}","localhost"]
 
 # Internationalization
 LANGUAGE_CODE = config('LANGUAGE_CODE', default='en-us')
@@ -119,6 +116,8 @@ if DEBUG:
     SECURE_CONTENT_TYPE_NOSNIFF = False
     SECURE_HSTS_SECONDS = 0
     SECURE_SSL_REDIRECT = False
+    # Dynamically construct the CSRF_TRUSTED_ORIGINS list
+    CSRF_TRUSTED_ORIGINS = ["http://localhost:8001","http://localhost:8000"]
 else:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -127,5 +126,6 @@ else:
     SECURE_HSTS_SECONDS = 31536000  # Enforce HTTPS for 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
-    SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Dynamically construct the CSRF_TRUSTED_ORIGINS list
+    CSRF_TRUSTED_ORIGINS = [f"https://{APP_HOST}"]

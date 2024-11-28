@@ -4,9 +4,9 @@
 __pycache__/
 db.sqlite3
 .env
+.env.example
 .DS_Store
 docker-build-commands.md
 docker-compose.yml
 docker-build-commands.ps1
 docker-compose.yml
-docker-compose.yml.my
