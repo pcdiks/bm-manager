@@ -39,7 +39,7 @@ Before you begin, ensure you have the following installed on your machine:
 services:
   app:
     build: .
-    container_name: pcdiks/bookmark_manager:latest
+    container_name: pcdiks/bmmanager:latest
     environment:
       - SECRET_KEY=your-very-secret-key
       - EMAIL_HOST=smtp.example.com
