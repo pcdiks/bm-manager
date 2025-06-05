@@ -108,7 +108,11 @@ class NetscapeBookmarkParser(html.parser.HTMLParser):
 def home(request):
     collections = Collection.objects.filter(owner=request.user)
     selected_collection_id = request.GET.get('collection')
-    selected_collection = get_object_or_404(Collection, id=selected_collection_id) if selected_collection_id else collections.first()
+    selected_collection = (
+        get_object_or_404(Collection, id=selected_collection_id, owner=request.user)
+        if selected_collection_id
+        else collections.first()
+    )
     categories = Category.objects.filter(collection=selected_collection) if selected_collection else []
 
     # Prepare categories with bookmarks
