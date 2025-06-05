@@ -19,7 +19,7 @@ def create_default_collection(sender, instance, created, **kwargs):
         # Add a default bookmark
         Bookmark.objects.create(
             url="https://github.com",
-            display_name="Github",
+            display_name="GitHub",
             notes="",
             category=category,
-        )        
+        )
